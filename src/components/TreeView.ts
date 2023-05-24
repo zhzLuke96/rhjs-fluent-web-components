@@ -6,7 +6,8 @@ export type TreeViewProps = {};
 export const TreeView = FluentUIWrapper(
   (
     { ...props }: TreeViewProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-tree-view`, { ...props }, ...children);
   }

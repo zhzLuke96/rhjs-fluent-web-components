@@ -12,7 +12,8 @@ export type SkeletonProps = {
 export const Skeleton = FluentUIWrapper(
   (
     { ...props }: SkeletonProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-skeleton`, { ...props }, ...children);
   }

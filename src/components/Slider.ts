@@ -27,7 +27,8 @@ export const Slider = FluentUIWrapper(
       slotTrackStart,
       ...props
     }: SliderProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotThumb, 'thumb', children);
     injectSlot(slotTrack, 'track', children);

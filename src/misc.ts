@@ -1,7 +1,7 @@
-import { utils } from '@rhjs/rh';
+import { untrack } from '@rhjs/rh';
 
 export const viewToSlot = (view: any, slotName: string) => {
-  const untrack_view = utils.untrack(view);
+  const untrack_view = untrack(view);
   let view_dom = untrack_view;
   if (!(untrack_view instanceof Element)) {
     view_dom = document.createElement('span');

@@ -13,7 +13,8 @@ export const Card = FluentUIWrapper(
       height,
       ...props
     }: CardProps & Omit<JSX.HTMLAttributes<HTMLDivElement>, 'width' | 'height'>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     const cardStyle = (value: undefined | number | string, key: string) =>
       value

@@ -1,4 +1,4 @@
-import { reactivity, rh } from '@rhjs/rh';
+import { isRef, rh } from '@rhjs/rh';
 import { RefOrValue } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
@@ -13,12 +13,13 @@ export const NumberField = FluentUIWrapper(
       bindValue,
       ...props
     }: NumberFieldProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     const dom = rh(`fluent-number-field`, { ...props }, ...children);
     if (bindValue) {
       dom.addEventListener('change', () => {
-        if (reactivity.isRef(props.value)) {
+        if (isRef(props.value)) {
           props.value.value = Number((dom as HTMLInputElement).value);
         }
       });

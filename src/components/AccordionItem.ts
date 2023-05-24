@@ -1,5 +1,5 @@
 import { rh } from '@rhjs/rh';
-import { injectSlot, viewToSlot } from '../misc';
+import { injectSlot } from '../misc';
 import { RefOrValue } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
@@ -23,7 +23,8 @@ export const AccordionItem = FluentUIWrapper(
       slotHeading,
       ...props
     }: AccordionItemProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     if (headingLevel) {
       (props as any)['heading-level'] = headingLevel;

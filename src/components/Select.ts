@@ -9,7 +9,8 @@ export type SelectProps = {
 export const Select = FluentUIWrapper(
   (
     { ...props }: SelectProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-select`, { ...props }, ...children);
   }

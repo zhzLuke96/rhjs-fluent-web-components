@@ -18,7 +18,8 @@ export type TextAreaProps = {
 export const TextArea = FluentUIWrapper(
   (
     { ...props }: TextAreaProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-text-area`, { ...props }, ...children);
   }

@@ -8,7 +8,8 @@ export type CalendarProps = {};
 export const Calendar = FluentUIWrapper(
   (
     { ...props }: CalendarProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-calendar`, { ...props }, ...children);
   }

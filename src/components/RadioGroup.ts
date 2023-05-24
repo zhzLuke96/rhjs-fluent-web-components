@@ -9,7 +9,8 @@ export type RadioGroupProps = {
 export const RadioGroup = FluentUIWrapper(
   (
     { ...props }: RadioGroupProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-radio-group`, { ...props }, ...children);
   }

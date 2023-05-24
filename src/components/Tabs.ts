@@ -1,5 +1,4 @@
 import { rh } from '@rhjs/rh';
-import { injectSlot } from '../misc';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type TabsOrientation = 'vertical' | 'horizontal';
@@ -17,7 +16,8 @@ export type TabsProps = {
 export const Tabs = FluentUIWrapper(
   (
     { tabs = [], ...props }: TabsProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     const container_dom = rh(`fluent-tabs`, { ...props }, ...children);
     tabs.forEach((tab) => {

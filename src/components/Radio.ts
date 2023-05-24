@@ -12,7 +12,8 @@ export type RadioProps = {
 export const Radio = FluentUIWrapper(
   (
     { ...props }: RadioProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-radio`, { ...props }, ...children);
   }

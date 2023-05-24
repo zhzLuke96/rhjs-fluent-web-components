@@ -20,7 +20,8 @@ export type TextFieldProps = {
 export const TextField = FluentUIWrapper(
   (
     { ...props }: TextFieldProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-text-field`, { ...props }, ...children);
   }

@@ -12,7 +12,8 @@ export type HorizontalScrollProps = {
 export const HorizontalScroll = FluentUIWrapper(
   (
     { ...props }: HorizontalScrollProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-horizontal-scroll`, { ...props }, ...children);
   }

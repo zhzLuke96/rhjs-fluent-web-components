@@ -21,7 +21,8 @@ export const ListOption = FluentUIWrapper(
       slotStart,
       ...props
     }: ListOptionProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotStart, 'start', children);
     injectSlot(slotEnd, 'end', children);

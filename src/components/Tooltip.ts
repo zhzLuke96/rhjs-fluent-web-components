@@ -1,4 +1,4 @@
-import { builtin, cs, rh } from '@rhjs/rh';
+import { builtin, onUnmount, rh } from '@rhjs/rh';
 import { renameKeysToDashCase } from '../misc';
 import { RefOrValue } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
@@ -36,7 +36,8 @@ export const Tooltip = FluentUIWrapper(
       tooltipView,
       ...props
     }: TooltipProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     if (children.length === 0) {
       children.push(document.createElement('span'));
@@ -48,11 +49,21 @@ export const Tooltip = FluentUIWrapper(
       tooltipView
     );
 
-    setTimeout(() => {
+    let timer: any;
+    const bindAnchor = () => {
+      if (!ch0) {
+        return;
+      }
+      if (!tooltipDom.isConnected) {
+        timer = setTimeout(bindAnchor, 0);
+        return;
+      }
       (tooltipDom as any).anchorElement = ch0;
-      // (tooltipDom as any).addListeners();
-    }, 3);
-    cs.onUnmount(() => {
+    };
+    bindAnchor();
+    onUnmount(() => clearTimeout(timer));
+
+    onUnmount(() => {
       (tooltipDom as any).removeListeners?.();
       (tooltipDom as any).disconnectedCallback?.();
     });

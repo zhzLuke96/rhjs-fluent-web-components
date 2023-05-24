@@ -6,7 +6,8 @@ export type DividerProps = {};
 export const Divider = FluentUIWrapper(
   (
     { ...props }: DividerProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-divider`, { ...props }, ...children);
   }

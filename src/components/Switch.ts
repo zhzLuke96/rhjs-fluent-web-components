@@ -17,7 +17,8 @@ export const Switch = FluentUIWrapper(
       slotUnCheckedMessage,
       ...props
     }: SwitchProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotCheckedMessage, 'checked-message', children);
     injectSlot(slotUnCheckedMessage, 'unchecked-message', children);

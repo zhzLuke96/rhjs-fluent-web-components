@@ -25,7 +25,8 @@ export const Button = FluentUIWrapper(
       slotEnd,
       ...props
     }: ButtonProps & JSX.HTMLAttributes<HTMLButtonElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotStart, 'start', children);
     injectSlot(slotEnd, 'end', children);

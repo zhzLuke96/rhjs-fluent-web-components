@@ -18,7 +18,8 @@ export const BreadcrumbItem = FluentUIWrapper(
       slotSeparator,
       ...props
     }: BreadcrumbItemProps & JSX.HTMLAttributes<HTMLAnchorElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotStart, 'start', children);
     injectSlot(slotEnd, 'end', children);

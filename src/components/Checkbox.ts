@@ -10,7 +10,8 @@ export type CheckboxProps = {
 export const Checkbox = FluentUIWrapper(
   (
     { ...props }: CheckboxProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-Checkbox`, { ...props }, ...children);
   }

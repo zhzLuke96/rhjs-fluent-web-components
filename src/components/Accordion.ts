@@ -13,7 +13,8 @@ export const Accordion = FluentUIWrapper(
       expandMode,
       ...props
     }: AccordionProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     if (expandMode) {
       (props as any)['expand-mode'] = expandMode;

@@ -1,5 +1,5 @@
 import { rh } from '@rhjs/rh';
-import { injectSlot, viewToSlot } from '../misc';
+import { injectSlot } from '../misc';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type AnchorProps = {
@@ -14,7 +14,8 @@ export const Anchor = FluentUIWrapper(
       slotEnd,
       ...props
     }: AnchorProps & JSX.HTMLAttributes<HTMLAnchorElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     injectSlot(slotStart, 'start', children);
     injectSlot(slotEnd, 'end', children);

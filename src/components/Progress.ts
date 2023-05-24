@@ -11,7 +11,8 @@ export type ProgressProps = {
 export const Progress = FluentUIWrapper(
   (
     { ...props }: ProgressProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-progress`, { ...props }, ...children);
   }

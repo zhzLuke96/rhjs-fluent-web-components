@@ -1,11 +1,11 @@
 // <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
 
-import { reactivity, utils } from '@rhjs/rh';
+import { ref, untrack } from '@rhjs/rh';
 
-export const fluentUIWebComponentsLoaded = reactivity.ref(false);
+export const fluentUIWebComponentsLoaded = ref(false);
 const defaultFluentUIImportSrc = 'https://unpkg.com/@fluentui/web-components';
 async function loadFluentUIWebComponents(src = defaultFluentUIImportSrc) {
-  if (utils.untrack(fluentUIWebComponentsLoaded)) {
+  if (untrack(fluentUIWebComponentsLoaded)) {
     return true;
   }
   const script = document.createElement('script');

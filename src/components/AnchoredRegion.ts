@@ -1,5 +1,5 @@
-import { builtin, cs, rh } from '@rhjs/rh';
-import { ensureDomId, renameKeysToDashCase } from '../misc';
+import { builtin, onUnmount, rh } from '@rhjs/rh';
+import { renameKeysToDashCase } from '../misc';
 import { RefOrValue } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
@@ -71,7 +71,8 @@ export const AnchoredRegion = FluentUIWrapper(
       regionView,
       ...props
     }: AnchoredRegionProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     if (children.length === 0) {
       children.push(document.createElement('span'));
@@ -83,8 +84,22 @@ export const AnchoredRegion = FluentUIWrapper(
       { ...renameKeysToDashCase(props) },
       regionView
     );
-    (region_view as any)['anchorElement'] = ch0;
-    cs.onUnmount(() => (region_view as any).disconnectedCallback());
+
+    let timer: any;
+    const bindAnchor = () => {
+      if (!ch0) {
+        return;
+      }
+      if (!region_view.isConnected) {
+        timer = setTimeout(bindAnchor, 0);
+        return;
+      }
+      (region_view as any).anchorElement = ch0;
+    };
+    bindAnchor();
+    onUnmount(() => clearTimeout(timer));
+
+    onUnmount(() => (region_view as any).disconnectedCallback());
     return () => rh(builtin.Fragment, {}, region_view, ...children);
   }
 );

@@ -74,7 +74,8 @@ export const DesignSystemProvider = FluentUIWrapper(
     {
       ...props
     }: DesignSystemProviderProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-design-system-provider`, { ...props }, ...children);
   }

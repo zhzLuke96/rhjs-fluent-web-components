@@ -10,7 +10,8 @@ export type BadgeProps = {
 export const Badge = FluentUIWrapper(
   (
     { ...props }: BadgeProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-badge`, { ...props }, ...children);
   }

@@ -1,4 +1,4 @@
-import { cs, reactivity, rh } from '@rhjs/rh';
+import { setupEffect, unref, rh } from '@rhjs/rh';
 import { renameKeysToDashCase } from '../misc';
 import { RefOrValue } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
@@ -19,15 +19,16 @@ export type DataGridProps = {
 export const DataGrid = FluentUIWrapper(
   (
     { rowsData, ...props }: DataGridProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     const dom = rh(
       `fluent-data-grid`,
       { ...renameKeysToDashCase(props) },
       ...children
     );
-    cs.hookEffect(() => {
-      (dom as any).rowsData = reactivity.unref(rowsData || []);
+    setupEffect(() => {
+      (dom as any).rowsData = unref(rowsData || []);
     });
     return () => dom;
   }

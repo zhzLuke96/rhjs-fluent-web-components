@@ -6,7 +6,8 @@ export type FlipperProps = {};
 export const Flipper = FluentUIWrapper(
   (
     { ...props }: FlipperProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () => rh(`fluent-flipper`, { ...props }, ...children);
   }

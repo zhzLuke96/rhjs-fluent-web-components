@@ -16,7 +16,8 @@ export type SliderLabelProps = {
 export const SliderLabel = FluentUIWrapper(
   (
     { ...props }: SliderLabelProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     return () =>
       rh(

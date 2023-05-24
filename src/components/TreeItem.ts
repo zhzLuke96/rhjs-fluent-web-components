@@ -19,7 +19,8 @@ export const TreeItem = FluentUIWrapper(
       onSelectedChange,
       ...props
     }: TreeItemProps & JSX.HTMLAttributes<HTMLDivElement>,
-    ...children: any[]
+    state,
+    children: any[]
   ) => {
     const dom = rh(`fluent-tree-item`, { ...props }, ...children);
     if (onExpandedChange) {
