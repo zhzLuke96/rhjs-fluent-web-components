@@ -1,16 +1,16 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { renameKeysToDashCase } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type SliderLabelExpandMode = 'single' | 'multi';
 
 export type SliderLabelProps = {
-  position?: RefOrValue<string>;
-  hideMark?: RefOrValue<boolean>;
-  disabled?: RefOrValue<boolean>;
+  position?: MaybeRef<string>;
+  hideMark?: MaybeRef<boolean>;
+  disabled?: MaybeRef<boolean>;
 
-  orientation?: RefOrValue<'vertical' | 'horizontal'>;
+  orientation?: MaybeRef<'vertical' | 'horizontal'>;
 };
 
 export const SliderLabel = FluentUIWrapper(

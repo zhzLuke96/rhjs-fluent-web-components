@@ -1,6 +1,7 @@
-import { builtin, onUnmount, rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
+import { Fragment } from '@rhjs/builtin';
 import { renameKeysToDashCase } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type TooltipPosition =
@@ -20,12 +21,12 @@ export type TooltipPosition =
   | 'bottom-end';
 
 export type TooltipProps = {
-  position?: RefOrValue<TooltipPosition>;
-  delay?: RefOrValue<number>;
-  autoUpdateMode?: RefOrValue<'auto' | 'anchor'>;
-  horizontalViewportLock?: RefOrValue<boolean>;
-  verticalViewportLock?: RefOrValue<boolean>;
-  visible?: RefOrValue<boolean>;
+  position?: MaybeRef<TooltipPosition>;
+  delay?: MaybeRef<number>;
+  autoUpdateMode?: MaybeRef<'auto' | 'anchor'>;
+  horizontalViewportLock?: MaybeRef<boolean>;
+  verticalViewportLock?: MaybeRef<boolean>;
+  visible?: MaybeRef<boolean>;
 
   tooltipView?: any;
 };
@@ -67,6 +68,9 @@ export const Tooltip = FluentUIWrapper(
       (tooltipDom as any).removeListeners?.();
       (tooltipDom as any).disconnectedCallback?.();
     });
-    return () => rh(builtin.Fragment, {}, tooltipDom, ...children);
+    return () => rh(Fragment, {}, tooltipDom, ...children);
   }
 );
+function onUnmount(arg0: () => void) {
+  throw new Error('Function not implemented.');
+}

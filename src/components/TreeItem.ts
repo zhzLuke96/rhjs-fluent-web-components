@@ -1,12 +1,12 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type TreeItemProps = {
-  expanded?: RefOrValue<boolean>;
-  selected?: RefOrValue<boolean>;
-  disabled?: RefOrValue<boolean>;
-  nested?: RefOrValue<boolean>;
+  expanded?: MaybeRef<boolean>;
+  selected?: MaybeRef<boolean>;
+  disabled?: MaybeRef<boolean>;
+  nested?: MaybeRef<boolean>;
 
   onExpandedChange?: (event: CustomEvent) => any;
   onSelectedChange?: (event: CustomEvent) => any;

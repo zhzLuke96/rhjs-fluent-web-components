@@ -1,12 +1,12 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type HorizontalScrollProps = {
-  view?: RefOrValue<'default' | 'mobile'>;
-  duration?: RefOrValue<string>;
-  speed?: RefOrValue<number>;
-  easing?: RefOrValue<string>;
+  view?: MaybeRef<'default' | 'mobile'>;
+  duration?: MaybeRef<string>;
+  speed?: MaybeRef<number>;
+  easing?: MaybeRef<string>;
 };
 
 export const HorizontalScroll = FluentUIWrapper(

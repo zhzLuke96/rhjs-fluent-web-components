@@ -1,4 +1,4 @@
-import { untrack } from '@rhjs/rh';
+import { untrack } from '@rhjs/core';
 
 export const viewToSlot = (view: any, slotName: string) => {
   const untrack_view = untrack(view);

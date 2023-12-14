@@ -1,13 +1,13 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { injectSlot } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type SwitchProps = {
   slotCheckedMessage?: any;
   slotUnCheckedMessage?: any;
 
-  readonly?: RefOrValue<boolean>;
+  readonly?: MaybeRef<boolean>;
 };
 
 export const Switch = FluentUIWrapper(

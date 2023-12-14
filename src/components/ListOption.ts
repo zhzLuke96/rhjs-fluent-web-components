@@ -1,14 +1,14 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { injectSlot } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type ListOptionExpandMode = 'single' | 'multi';
 
 export type ListOptionProps = {
   value?: string;
-  selected?: RefOrValue<boolean>;
-  disabled?: RefOrValue<boolean>;
+  selected?: MaybeRef<boolean>;
+  disabled?: MaybeRef<boolean>;
 
   slotStart?: any;
   slotEnd?: any;

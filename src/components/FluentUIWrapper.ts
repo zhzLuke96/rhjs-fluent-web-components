@@ -1,14 +1,12 @@
-import { rh, ComponentDefine } from '@rhjs/rh';
+import { rh, Component } from '@rhjs/core';
 import { fluentUIWebComponentsLoaded } from '../loader';
 
 // wait for fluent ui loaded
-export const FluentUIWrapper = <Component extends ComponentDefine>(
-  component: Component
-) => {
+export const FluentUIWrapper = <C extends Component>(component: C) => {
   return ((props: any, state: any, children: any[]) => {
     return () =>
       fluentUIWebComponentsLoaded.value
         ? rh(component, props, ...children)
         : null;
-  }) as Component;
+  }) as any as C;
 };

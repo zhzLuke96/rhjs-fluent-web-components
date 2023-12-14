@@ -1,9 +1,9 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type SelectProps = {
-  open?: RefOrValue<boolean>;
+  open?: MaybeRef<boolean>;
 };
 
 export const Select = FluentUIWrapper(

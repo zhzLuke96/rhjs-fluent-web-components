@@ -1,17 +1,17 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { injectSlot } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type SliderExpandMode = 'single' | 'multi';
 
 export type SliderProps = {
-  readonly?: RefOrValue<boolean>;
-  min?: RefOrValue<number>;
-  max?: RefOrValue<number>;
-  step?: RefOrValue<number>;
+  readonly?: MaybeRef<boolean>;
+  min?: MaybeRef<number>;
+  max?: MaybeRef<number>;
+  step?: MaybeRef<number>;
 
-  orientation?: RefOrValue<'vertical' | 'horizontal'>;
+  orientation?: MaybeRef<'vertical' | 'horizontal'>;
   mode?: 'single-value'; // ...?
 
   slotTrack?: any;

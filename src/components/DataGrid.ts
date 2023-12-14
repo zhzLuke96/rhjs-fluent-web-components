@@ -1,6 +1,7 @@
-import { setupEffect, unref, rh } from '@rhjs/rh';
+import { unref, rh } from '@rhjs/core';
+import { createEffect } from '@rhjs/hooks';
 import { renameKeysToDashCase } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 // TODO data-grid-cell
@@ -11,9 +12,9 @@ export type GenerateHeaderOptions = 'default' | 'none' | 'sticky';
 export type DataGridProps = {
   rowsData?: Record<keyof any, any>[];
 
-  noTabbing?: RefOrValue<boolean>;
+  noTabbing?: MaybeRef<boolean>;
   generateHeader?: GenerateHeaderOptions;
-  gridTemplateColumns?: RefOrValue<string>;
+  gridTemplateColumns?: MaybeRef<string>;
 };
 
 export const DataGrid = FluentUIWrapper(
@@ -27,7 +28,7 @@ export const DataGrid = FluentUIWrapper(
       { ...renameKeysToDashCase(props) },
       ...children
     );
-    setupEffect(() => {
+    createEffect(() => {
       (dom as any).rowsData = unref(rowsData || []);
     });
     return () => dom;

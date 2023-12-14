@@ -1,5 +1,5 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type DesignSystemProviderKeys =
@@ -66,7 +66,7 @@ export type DesignSystemProviderKeys =
   | 'neutral-stroke-focus-delta';
 
 export type DesignSystemProviderProps = {
-  [K in DesignSystemProviderKeys]?: RefOrValue<string | number>;
+  [K in DesignSystemProviderKeys]?: MaybeRef<string | number>;
 };
 
 export const DesignSystemProvider = FluentUIWrapper(

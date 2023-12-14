@@ -1,6 +1,8 @@
-import { builtin, onUnmount, rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
+import { onUnmounted } from '@rhjs/hooks';
+import { Fragment } from '@rhjs/builtin';
 import { renameKeysToDashCase } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 enum AxisPositioningMode {
@@ -47,22 +49,22 @@ enum AnchoredRegionPositionLabel {
 export type AnchoredRegionProps = {
   regionView?: any;
 
-  verticalPositioningMode?: RefOrValue<AxisPositioningMode>;
-  verticalDefaultPosition?: RefOrValue<VerticalPosition>;
-  verticalViewportLock?: RefOrValue<boolean>;
-  verticalInset?: RefOrValue<boolean>;
-  verticalThreshold?: RefOrValue<number>;
-  verticalScaling?: RefOrValue<AxisScalingMode>;
+  verticalPositioningMode?: MaybeRef<AxisPositioningMode>;
+  verticalDefaultPosition?: MaybeRef<VerticalPosition>;
+  verticalViewportLock?: MaybeRef<boolean>;
+  verticalInset?: MaybeRef<boolean>;
+  verticalThreshold?: MaybeRef<number>;
+  verticalScaling?: MaybeRef<AxisScalingMode>;
 
-  horizontalPositioningMode?: RefOrValue<AxisPositioningMode>;
-  horizontalDefaultPosition?: RefOrValue<HorizontalPosition>;
-  horizontalViewportLock?: RefOrValue<boolean>;
-  horizontalInset?: RefOrValue<boolean>;
-  horizontalThreshold?: RefOrValue<number>;
-  horizontalScaling?: RefOrValue<AxisScalingMode>;
+  horizontalPositioningMode?: MaybeRef<AxisPositioningMode>;
+  horizontalDefaultPosition?: MaybeRef<HorizontalPosition>;
+  horizontalViewportLock?: MaybeRef<boolean>;
+  horizontalInset?: MaybeRef<boolean>;
+  horizontalThreshold?: MaybeRef<number>;
+  horizontalScaling?: MaybeRef<AxisScalingMode>;
 
-  fixedPlacement?: RefOrValue<boolean>;
-  autoUpdateMode?: RefOrValue<boolean>;
+  fixedPlacement?: MaybeRef<boolean>;
+  autoUpdateMode?: MaybeRef<boolean>;
 };
 
 export const AnchoredRegion = FluentUIWrapper(
@@ -97,9 +99,10 @@ export const AnchoredRegion = FluentUIWrapper(
       (region_view as any).anchorElement = ch0;
     };
     bindAnchor();
-    onUnmount(() => clearTimeout(timer));
 
-    onUnmount(() => (region_view as any).disconnectedCallback());
-    return () => rh(builtin.Fragment, {}, region_view, ...children);
+    onUnmounted(() => clearTimeout(timer));
+    onUnmounted(() => (region_view as any).disconnectedCallback());
+
+    return () => rh(Fragment, {}, region_view, ...children);
   }
 );

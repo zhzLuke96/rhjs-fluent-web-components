@@ -1,4 +1,4 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type AccordionExpandMode = 'single' | 'multi';

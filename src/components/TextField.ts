@@ -1,20 +1,20 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type TextFieldType = 'email' | 'password' | 'tel' | 'text' | 'url';
 
 export type TextFieldProps = {
-  type?: RefOrValue<TextFieldType>;
-  placeholder?: RefOrValue<string>;
-  readonly?: RefOrValue<boolean>;
-  resize?: RefOrValue<boolean>;
-  autofocus?: RefOrValue<boolean>;
-  maxlength?: RefOrValue<number>;
-  minlength?: RefOrValue<number>;
-  pattern?: RefOrValue<string>;
-  size?: RefOrValue<number>;
-  spellcheck?: RefOrValue<boolean>;
+  type?: MaybeRef<TextFieldType>;
+  placeholder?: MaybeRef<string>;
+  readonly?: MaybeRef<boolean>;
+  resize?: MaybeRef<boolean>;
+  autofocus?: MaybeRef<boolean>;
+  maxlength?: MaybeRef<number>;
+  minlength?: MaybeRef<number>;
+  pattern?: MaybeRef<string>;
+  size?: MaybeRef<number>;
+  spellcheck?: MaybeRef<boolean>;
 };
 
 export const TextField = FluentUIWrapper(

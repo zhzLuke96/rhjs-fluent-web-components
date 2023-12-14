@@ -1,11 +1,11 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type ProgressProps = {
-  value?: RefOrValue<number | null>;
-  max?: RefOrValue<number>;
-  min?: RefOrValue<number>;
+  value?: MaybeRef<number | null>;
+  max?: MaybeRef<number>;
+  min?: MaybeRef<number>;
 };
 
 export const Progress = FluentUIWrapper(

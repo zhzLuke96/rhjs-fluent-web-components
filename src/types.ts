@@ -1,5 +1,3 @@
-import { reactivity } from '@rhjs/rh';
+import { Ref } from '@rhjs/core';
 
-export type RefOrValue<T> = T extends reactivity.Ref<any>
-  ? T
-  : reactivity.Ref<T> | T;
+export type MaybeRef<T> = T extends Ref<any> ? T : Ref<T> | T;

@@ -1,14 +1,14 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { injectSlot } from '../misc';
-import { RefOrValue } from '../types';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type AccordionItemExpandMode = 'single' | 'multi';
 
 export type AccordionItemProps = {
-  headingLevel?: RefOrValue<1 | 2 | 3 | 4 | 5>;
-  expanded?: RefOrValue<boolean>;
-  disabled?: RefOrValue<boolean>;
+  headingLevel?: MaybeRef<1 | 2 | 3 | 4 | 5>;
+  expanded?: MaybeRef<boolean>;
+  disabled?: MaybeRef<boolean>;
 
   // slot
   slotHeading?: any;

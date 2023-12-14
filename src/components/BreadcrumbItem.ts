@@ -1,4 +1,4 @@
-import { rh } from '@rhjs/rh';
+import { rh } from '@rhjs/core';
 import { injectSlot } from '../misc';
 import { FluentUIWrapper } from './FluentUIWrapper';
 

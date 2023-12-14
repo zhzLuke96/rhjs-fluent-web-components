@@ -1,9 +1,9 @@
-import { isRef, rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { isRef, rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type NumberFieldProps = {
-  value?: RefOrValue<number>;
+  value?: MaybeRef<number>;
   bindValue?: boolean;
 };
 

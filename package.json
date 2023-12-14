@@ -1,7 +1,7 @@
 {
   "name": "@rhjs/fluent-web-components",
   "description": "fluent web components for rh.js",
-  "version": "0.0.1",
+  "version": "0.3.5",
   "license": "MIT",
   "source": "src/main.ts",
   "main": "dist/main.umd.js",
@@ -32,7 +32,9 @@
     "rollup-plugin-dts": "^5.3.0"
   },
   "dependencies": {
-    "@rhjs/rh": "^0.1.1-dev.24"
+    "@rhjs/builtin": "^0.3.5",
+    "@rhjs/core": "^0.3.5",
+    "@rhjs/hooks": "^0.3.4"
   },
   "scripts": {
     "build-dts": "rollup -c rollup.dts.config.js",

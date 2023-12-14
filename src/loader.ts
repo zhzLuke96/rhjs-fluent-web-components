@@ -1,6 +1,6 @@
 // <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
 
-import { ref, untrack } from '@rhjs/rh';
+import { ref, untrack } from '@rhjs/core';
 
 export const fluentUIWebComponentsLoaded = ref(false);
 const defaultFluentUIImportSrc = 'https://unpkg.com/@fluentui/web-components';

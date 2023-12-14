@@ -1,10 +1,10 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type CheckboxProps = {
-  checked?: RefOrValue<boolean>;
-  disabled?: RefOrValue<boolean>;
+  checked?: MaybeRef<boolean>;
+  disabled?: MaybeRef<boolean>;
 };
 
 export const Checkbox = FluentUIWrapper(

@@ -1,12 +1,12 @@
-import { rh } from '@rhjs/rh';
-import { RefOrValue } from '../types';
+import { rh } from '@rhjs/core';
+import { MaybeRef } from '../types';
 import { FluentUIWrapper } from './FluentUIWrapper';
 
 export type SkeletonProps = {
-  fill?: RefOrValue<string>;
-  shape?: RefOrValue<'rect' | 'circle'>;
-  pattern?: RefOrValue<string>;
-  shimmer?: RefOrValue<boolean>;
+  fill?: MaybeRef<string>;
+  shape?: MaybeRef<'rect' | 'circle'>;
+  pattern?: MaybeRef<string>;
+  shimmer?: MaybeRef<boolean>;
 };
 
 export const Skeleton = FluentUIWrapper(
